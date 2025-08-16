@@ -42,11 +42,24 @@ Plataforma robusta para gestão de eventos com metodologia Scrum e integração 
 
 ## 🛠️ Instalação
 
-### Pré-requisitos
+### Opção 1: Docker (Recomendado)
+
+```bash
+# Clonar repositório
+git clone https://github.com/hakenshi/event-scrum-platform.git
+cd event-scrum-platform
+
+# Iniciar com Docker
+./docker-start.sh
+```
+
+### Opção 2: Instalação Manual
+
+#### Pré-requisitos
 - PHP 8.2+
 - Composer
 - Node.js 18+
-- MySQL 8.0+
+- PostgreSQL 13+
 - Conta AWS (para Bedrock)
 
 ### Backend (Laravel)

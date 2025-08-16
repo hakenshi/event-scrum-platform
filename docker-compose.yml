@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: event-scrum-postgres
+    environment:
+      POSTGRES_DB: event_scrum_platform
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - event-scrum-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: event-scrum-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: event_scrum_platform
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - event-scrum-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: event-scrum-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - event-scrum-network
+
+volumes:
+  postgres_data:
+
+networks:
+  event-scrum-network:
+    driver: bridge
