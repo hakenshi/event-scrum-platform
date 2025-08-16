@@ -5,16 +5,16 @@ Plataforma robusta para gestão de eventos com metodologia Scrum e integração 
 ## 🚀 Tecnologias
 
 ### Backend
-- **Laravel 10** - Framework PHP robusto
+- **Laravel 12** - Framework PHP robusto
 - **MySQL** - Banco de dados relacional
 - **AWS Bedrock** - IA para geração de conteúdo
-- **JWT Auth** - Autenticação segura
+- **Laravel Sanctum** - Autenticação segura
 - **Spatie Permissions** - Controle de acesso
 
 ### Frontend
-- **Next.js 14** - Framework React
+- **Next.js 15** - Framework React
 - **TypeScript** - Tipagem estática
-- **Tailwind CSS** - Estilização
+- **Tailwind CSS 4** - Estilização
 - **React Hook Form** - Formulários
 - **React Query** - Gerenciamento de estado
 - **Radix UI** - Componentes acessíveis
@@ -43,7 +43,7 @@ Plataforma robusta para gestão de eventos com metodologia Scrum e integração 
 ## 🛠️ Instalação
 
 ### Pré-requisitos
-- PHP 8.1+
+- PHP 8.2+
 - Composer
 - Node.js 18+
 - MySQL 8.0+
@@ -176,7 +176,7 @@ event-scrum-platform/
 ## 🚀 Deploy
 
 ### Backend
-- Configure servidor PHP 8.1+
+- Configure servidor PHP 8.2+
 - Configure MySQL
 - Configure variáveis de ambiente
 - Execute `composer install --optimize-autoloader`
